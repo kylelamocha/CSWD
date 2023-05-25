@@ -432,7 +432,7 @@
                                     </tr>
                                     <tr>
                                         <td class="label-td" colspan="2">
-                                            <input type="text" name="name" class="input-text" placeholder="Doctor Name" value="'.$name.'" required><br>
+                                            <input type="text" name="name" class="input-text" placeholder="Personnel" value="'.$name.'" required><br>
                                         </td>
                                         
                                     </tr>

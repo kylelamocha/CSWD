@@ -642,6 +642,7 @@ select{
 	border:1px solid #BEBEBE;
 	padding: 15px;
 	margin:0px;
+  border-radius: 7px;
 	-webkit-transition: all 0.30s ease-in-out;
 	-moz-transition: all 0.30s ease-in-out;
 	-ms-transition: all 0.30s ease-in-out;
@@ -669,13 +670,17 @@ select{
 }
 .form-style-1 .field-divided{
 	width: 49%;
+
+
 }
 
 .form-style-1 .field-long{
 	width: 100%;
+
 }
 .form-style-1 .field-select{
 	width: 100%;
+ 
 }
 .form-style-1 .field-textarea{
 	height: 100px;
@@ -733,7 +738,87 @@ select{
 .rated > label:hover ~ input:checked ~ label {
   color: #c59b08;
 }
+.messagebox{
+  border: 2px solid #c9cbce00;
+  border-radius: 7px;
+  border-width: ;
+  padding: initial;
+  margin: auto;
+  padding: 5px;
+  font-style: italic;
+  
+  
+
+}
 
 
 
 
+/* Approved Mark */
+.approved-mark {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: green;
+}
+
+.approved-mark::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 12px;
+  border: 2px solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  margin: 4px 7px;
+}
+
+/* Pending Mark */
+.pending-mark {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid orange;
+  border-radius: 50%;
+}
+
+.pending-mark::after {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: orange;
+  margin: 6px;
+}
+
+/* Cancelled Mark */
+.cancelled-mark {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid red;
+  border-radius: 50%;
+  position: relative;
+}
+
+.cancelled-mark::before,
+.cancelled-mark::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 2px;
+  background-color: red;
+  transform: translate(-50%, -50%);
+}
+
+.cancelled-mark::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.cancelled-mark::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}

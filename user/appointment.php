@@ -287,7 +287,7 @@
                                                                 
                                                                 
                                                                 <div class="h3-search">
-                                                                    Scheduled Date: '.$scheduledate.'<br>Starts: <b>@'.substr($scheduletime,0,5).'</b> (24h)
+                                                                    Scheduled Date: '.$scheduledate.'<br>Starts: <b>@'.substr($scheduletime,0,5).'</b> (2h)
                                                                 </div>
                                                                 <div class="h3-search">
                                                                     Mode of consultation: '.$mode.'</b> 

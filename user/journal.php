@@ -143,7 +143,7 @@
             <h2>Create your journal here</h2>
          
             <form action="add-journal.php" method="post">
-            <ul class="form-style-1">
+            <ul class="form-style-1 sub-table">
                 <!--<li>
                     <label>Full Name <span class="required">*</span></label>
                     <input type="text" name="first_name" class="field-divided" placeholder="First" required/> <input type="text" name="last_name" class="field-divided" placeholder="Last" required/>
@@ -159,7 +159,7 @@
                 </li>
                 <li>
                     <label>Please rate your mood on a scale of 1-5 stars.<span class="required">*</span></label>
-                    <p style="font-weight:bold;">5 = Cheerful,
+                    <p>                 5 = Cheerful,
                                                 4 = Satisfied,
                                                 3 = Neutral,
                                                 2 = Upset,
@@ -179,7 +179,7 @@
                 </li><br>
                 <li><br>
                 <br><label>Write here <span class="required">*</span></label>
-                    <textarea name="j_message" rows="6" cols="60" placeholder="Write your thoughts and feelings here..." required ></textarea>
+                    <textarea name="j_message" rows="auto" cols="50%" placeholder="Write your thoughts and feelings here..." required ></textarea>
                 </li>
                 <li>
                     <input type="submit" value="Submit" />

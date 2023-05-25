@@ -40,6 +40,41 @@
         color: white;
         }
 </style>
+<style>
+    .message-entry {
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+    }
+
+    .message-field {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+    .field-label {
+        font-weight: bold;
+        margin-right: 5px;
+    }
+
+    .message-actions {
+        margin-top: 10px;
+    }
+
+    .message-actions a {
+        color: #dc3545;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .no-entries {
+        color: #dc3545;
+        font-weight: bold;
+    }
+</style>
 </head>
 <body>
 <?php
@@ -132,7 +167,7 @@ $username=$userfetch["pname"];
         </table>
     </div>
     <div class="dash-body">
-            <table border="0" width="100%" style=" border-spacing: 0;margin:0;padding:0;margin-top:25px; ">
+            <table width="100%" style=" border-spacing: 0;margin:0;padding:0;margin-top:25px; ">
                 <tr >
                     <td width="13%" >
                     <a href="index.php" ><button  class="login-btn btn-primary-soft btn btn-icon-back"  style="padding-top:11px;padding-bottom:11px;margin-left:20px;width:125px"><font class="tn-in-text">Back</font></button></a>
@@ -170,43 +205,49 @@ $username=$userfetch["pname"];
             pid = '".$userid."' ";
             $result = mysqli_query($database, $query);
             ?>
-            <table  id="customers">
-            <tr>
-                <th>User ID</th>   
-                <!--<th>Name</th>-->
-                <th>Date</th>
-                <th>Subject</th>
-                <th>Rate your Mood</th>
-                <th>Message</th>
-                <th>Delete</th>
-                <!--<th>Share</th>-->
-            </tr>
-            <?php
-            if (mysqli_num_rows($result) > 0) {
-            $sn=1;
-            while($data = mysqli_fetch_assoc($result)) {
-            ?>
-            <tr>
-            <td><?php echo $data['pid']; ?> </td>
-            <td><?php echo $data['j_date']; ?> </td>
-            <td><?php echo $data['j_subject']; ?> </td>
-            <td><?php echo $data['rating']; ?> </td>
-            <td><?php echo $data['j_message']; ?> </td>
-            <td>
-                <!--<a href="#">Edit</a>--> 
-                <a onClick="return confirm('Are you sure you want to delete?')" href="delete.php?ID=<?php echo $data["ID"]; ?>">Delete</a>
-            </td>
+         <?php
+if (mysqli_num_rows($result) > 0) {
+    $sn = 1;
+    while ($data = mysqli_fetch_assoc($result)) {
+?>
+        <div class="message-entry h5-dashboard sub-table">
+            <!-- <div class="message-field">
+                <span class="field-label">User ID:</span>
+                <span class="field-value"><?php echo $data['pid']; ?></span>
+            </div> -->
+            <div class="message-field">
+                <span class="field-label">Entry Number:</span>
+                <span class="field-value"><?php echo $sn; ?></span>
+            </div>
+            <div class="message-field">
+                <span class="field-label">Date:</span>
+                <span class="field-value"><?php echo $data['j_date']; ?></span>
+            </div>
+            <div class="message-field">
+                <span class="field-label">Subject:</span>
+                <span class="field-value"><?php echo $data['j_subject']; ?></span>
+            </div>
+            <div class="message-field">
+                <span class="field-label">Rate your Mood:</span>
+                <span class="field-value"><?php echo $data['rating']; ?></span>
+            </div>
+            <div class="message-field ">
+                <span class="field-label">Message:</span>
+            </div>
+            <span class="messagebox"><?php echo $data['j_message']; ?></span>
             
-            </tr>
-            <?php
-            $sn++;}
-            } else { ?>
-                <tr>
-                <td colspan="8">No journal entries found</td>
-                </tr>
-            <?php } ?>
-            </table>
+            <div class="message-actions">
+                <a onClick="return confirm('Are you sure you want to delete?')" href="delete.php?ID=<?php echo $data["ID"]; ?>">Delete</a>
+            </div>
+        </div>
+<?php
+        $sn++;
+    }
+} else {
+    echo '<p class="no-entries">No journal entries found</p>';
+}
+?>
 
-
+    </div>
 </body>
 </html>

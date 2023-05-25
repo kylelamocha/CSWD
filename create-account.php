@@ -138,7 +138,12 @@ if($_POST){
                     <input type="password" name="cpassword" class="input-text" placeholder="Confirm Password" required>
                 </td>
             </tr>
-     
+            <tr>
+                    <td class="label-td" colspan="2">
+                        <label for="terms" class="form-label">I agree to these <a href="#" target="popup"> Terms and Conditions. </a></label>
+                        <input type="checkbox" name="terms" id="terms" required>
+                    </td>
+                </tr>
             <tr>
                 
                 <td colspan="2">
